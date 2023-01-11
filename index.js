@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
-const port = 80
+const pkg = require('./package.json');
+const port = process.env.PORT || 8080;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
